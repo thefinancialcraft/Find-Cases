@@ -16,6 +16,19 @@
             width: 100%;
             overflow: hidden; /* Prevent scrollbars */
         }
+        /* Hide scrollbar for Webkit-based browsers (Chrome, Safari) */
+        body::-webkit-scrollbar {
+        width: 0px; /* Set the scrollbar width to 0 */
+        background: transparent; /* Optional: hides the scrollbar background */
+       }
+
+/* Hide scrollbar for Internet Explorer, Edge, and Firefox */
+body {
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+  scrollbar-width: none; /* Firefox */
+     overflow: hidden; /* Completely hides the scrollbar */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
         iframe {
             width: 100%;
             height: 100%;
