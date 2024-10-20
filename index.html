@@ -3,43 +3,1417 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TFC Payment Grid</title>
-    <link rel="icon" type="image/png" href="fav-icon.jpg">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* Prevent scrollbars */
-        }
-        /* Hide scrollbar for Webkit-based browsers (Chrome, Safari) */
-        body::-webkit-scrollbar {
-        width: 0px; /* Set the scrollbar width to 0 */
-        background: transparent; /* Optional: hides the scrollbar background */
-       }
+    <title>TFC-Connect</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+  
+    <style>@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans+Carian&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/* Hide scrollbar for Internet Explorer, Edge, and Firefox */
-body {
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-  scrollbar-width: none; /* Firefox */
-     overflow: hidden; /* Completely hides the scrollbar */
-  overflow-y: auto; /* Enables vertical scrolling */
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+
+ /* General Styles */
+
+
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E6E2FF;
+    
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wavehand{
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #4931e7;
+}
+.wavehand::before{
+    font-size: 40px;
+    color: #4931e7;
+}
+.flex-row{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.flex-coloum{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.main-container{
+    width: 65%;
+    height: 80%;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 4px 4px 20px #0a004918;
+    
+}
+
+.hero-container {
+    width: 55%;
+    background-color: #f6f5ff;
+    height: 100%;
+    border-radius: 25px 0 0 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-container img {
+    width: 60%;
+    height: auto;
+}
+
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: #4931e7; */
+    
+   
+}
+
+.slide, .hero2 {
+    width: 100%;
+    height: 90%;
+    text-align: center;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slide h1, .hero2 h1{ 
+    font-family:'roboto';
+    color: #4931e7;
+    font-weight: 600;
+    width: 80%;
+    font-size: 1.7vw;
+
+}
+
+
+.slide p,.hero2 p{
+    font-family:'roboto';
+    color: #847fa5;
+    width: 70%;
+    font-size: 1.1vw;
+    font-weight: 400;
+} 
+
+
+#login-container-email{
+    display: none;
+}
+
+
+.form-container{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua;  */
+
+}
+
+.container{
+    width: 90%;
+    height: 100%;
+    /* background-color: #4931e7; */
+    overflow: hidden;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+
+.fgid{
+    display: none;
+}
+
+.fgpass{
+    display: none;
+}
+.hero-container .hero-button{
+    display: none;
+}
+.hero-small-container{
+    display: none;
+}
+
+.prm-logo-cnt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    /* background-color: #4931e7; */
+}
+
+
+#wlcHand {
+    display: inline-block;
+    margin-right: 4px;
+    background: linear-gradient(to right, #ffc45f, #ff8a00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+   
+}
+
+#wlcHand {
+    display: inline-block;
+    animation: rotateWave 1s infinite linear;
+}
+
+@keyframes rotateWave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.welcome-msg{
+    width: 100%;
+    height: 15%;
+    justify-content: center;
+    color: #263238;
+    text-shadow: 2px 4px 15px #2632382b;
+
+    /* background-color: #4931e7; */
+    /* gap: 1px; */
+
+
+}
+.welcome-msg h2{
+    font-family: 'poppins';
+    font-size: 1vw;
+    font-weight: 400;
+}
+.welcome-msg .mainh2{
+    font-size: 1.5vw;
+    margin-top: 5px;
+    font-weight: 700;
+    
+}
+
+
+
+
+.logo{
+    width: 100%;
+    height: 100%;
+
+}
+
+
+.logo-icon-box{
+    width: 35px;
+    border-radius: 50%;
+    height: 35px;
+    background-color: #4931e7;
+    overflow: hidden;
+}
+
+.logo-icon-box img{
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+} 
+
+
+.logo h1{
+    font-family:'roboto';
+    color:#263238;
+    font-weight: 900;
+    margin-left: 6px;
+    font-size: 2.2vw;
+   
+
+}
+
+#forgot-id-container{
+    display: none;
+}
+
+
+
+#forgot-password-container{
+    display: none;
+}
+
+.upd-pass{
+    display: none;
+}
+
+.otp-verify{
+    display: flex;
+}
+
+#update-pass-button{
+    display: none;
+}
+
+.lg-cnt form{
+    width: 100%;
+    height: 45%;
+    /* display: none; */
+    justify-content: space-evenly;
+    /* background-color: #4931e7; */
+}
+
+.find-userid {
+    display: none;
+}
+
+.lg-cnt .find-userid{
+    width: 65%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: #4931e7; */
+}
+
+.lg-cnt .find-userid img{
+    width: 100%;
+    height: 70%;
+    object-fit: contain;
+
+}
+
+.lg-cnt .find-userid p{
+    text-align: center;
+    font-size: .8vw;
+    margin-top: 6px;
+    font-family: 'poppins';
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.login-form .input-group{
+    display:flex;
+    flex-direction: column;
+    width: 70%;
+
+}
+
+.login-form  input{
+    width: 100%;
+    height: 35px;
+    border-radius: 30px;
+    border: 1.5px solid #8773da8e;
+    padding: 0 15px;
+    
+}
+input:focus {
+    border-color: #4931e7; /* Border color jab user type kare */
+    outline: none; /* Optional: Browser ke default outline ko hide karne ke liye */
+}
+.otp-box{
+    width: 100%;
+    justify-content: space-between;
+}
+.otp input{ 
+  width: 15%;
+  padding: 0;
+  text-align: center;
+}
+
+.input-group label{
+    font-size: .9vw;
+    font-family: 'poppins';
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.input-group a:active{
+    color: #4931e7;
+}
+
+.input-group a{
+    text-align: end;
+    font-size: .8vw;
+    margin-top: 2px;
+    font-family: 'poppins';
+    font-weight: 500;
+    text-decoration: none;
+
+}
+
+.btn-cnt{
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.login-form button{
+   background-color: #4931e7;
+    font-size: 1.2vw;
+    color: white; /* Text ka color */
+    /* font-weight: 500; */
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    width: 70% ;
+    height: 35px; /* Full height button */
+    margin-top: 10px;
+}
+
+.sign-opn{
+    width: 100%;
+    height: 20%;
+    justify-content: space-around;
+    
+}
+
+.decor{
+    width: 100%;
+    color: #2632388d;
+    font-family: 'roboto';
+    font-size: .9vw;
+    gap: 10px;
+
+}
+.sign-opn button{
+    /* background-color: #4931e7; */
+    font-size: 1.2vw;
+    color: #4931e7; /* Text ka color */
+    /* font-weight: 500; */
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    width: 70% ;
+    background-color: white;
+    height: 33px; /* Full height button */
+    border: 1px solid #4931e7;
+    margin-top: 5px;
+}
+
+.decor span{
+    width: 50px;
+    height: .5px;
+    background-color: #26323865;
+    border-radius: 20px;
+}
+
+
+.logo h1 span{
+    font-weight: 300;
+    color: #4931e7;
+    margin-left: 1px;
+}
+
+.hero2{
+    width: 100%;
+    height: 100%;
+    display: none;
+    /* background-color: #263238; */
+}
+
+
+
+@media only screen and (max-width: 567px) {
+    .main-container{
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+
+
+
+    .form-container{
+        display: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+    .hero-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        flex-direction: column;
+
+    }
+    .slide img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+    }
+
+    .slider {
+        height: 70%;
+    }
+    
+.slide {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+
+.slide h1{ 
+    font-family:'roboto';
+    color: #4931e7;
+    font-weight: 600;
+    width: 90%;
+    line-height: 40px;
+    font-size: 7vw;
+
+}
+
+.slide p{
+    font-family:'roboto';
+    color: #847fa5;
+    width: 80%;
+    font-size: 4vw;
+    font-weight: 400;
+} 
+
+.hero-small-container{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #4931e7; */
+
+}
+.logo{
+    width: 100%;
+    height: 100%;
+
+}
+.logo-icon-box{
+    width: 45px;
+    border-radius: 50%;
+    height: 45px;
+    background-color: #4931e7;
+    overflow: hidden;
+}
+
+.logo h1{
+    font-family:'roboto';
+    color:#263238;
+    font-weight: 900;
+    margin-left: 6px;
+    font-size: 9vw;
+
+}
+
+.logo h1 span{
+    font-weight: 300;
+    color: #4931e7;
+    margin-left: 1px;
+}
+
+.login-slider {
+    position: relative;
+    width: 350px; /* Width ko apne design ke according set karein */
+    height: 55px; /* Height ko apne design ke according set karein */
+    background-color: #ffffff; /* Background color */
+    border-radius: 50px; /* Rounded corners */
+    overflow: hidden; /* Overflow ko hide karein */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 30px #4931e715;
+}
+
+.slider-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    transition: transform 0.2s ease; /* Smooth transition */
+    
+}
+
+.login-slider p{
+
+    position: absolute;
+    /* text-align: center; */
+    right: 20px;
+    font-size: 4vw;
+    font-weight: 500;
+    color: #4931e7;
+    font-family: 'roboto',sans-serif;
+}
+
+.swipe-button {
+    /* padding: 10px 40px; */
+    background: linear-gradient(40deg, #5038ED 0%,  #9181F4 100%); /* Button ka background color */
+    font-size: 3.5vw;
+    color: white; /* Text ka color */
+    /* font-weight: 500; */
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    cursor: pointer;
+    width:120px ;
+    height: 100%; /* Full height button */
+
+}
+
+
+.container{
+    height: 80%;
+    justify-content: space-between;
+    margin-top: -20%;
+}
+
+
+.logo-icon-box img{
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+
+
+.welcome-msg{
+    width: 100%;
+    height: 10%;
+
+    justify-content: center;
+    color: #263238;
+    text-shadow: 2px 4px 15px #2632382b;
+
+    /* background-color: #4931e7; */
+    /* gap: 1px; */
+
+
+}
+.welcome-msg h2{
+   
+    font-size: 4vw;
+  
+}
+.welcome-msg .mainh2{
+    font-size: 5.5vw;
+   
+    
+}
+
+.lg-cnt form{
+    width: 100%;
+    height: 45%;
+    /* display: none; */
+    justify-content: space-around;
+    /* background-color: #4931e7; */
+}
+
+.login-form .input-group{
+    display:flex;
+    flex-direction: column;
+    width: 90%;
+
+}
+
+.login-form  input{
+ 
+    height: 55px;
+    box-shadow: 1px 2px 30px #4931e710;
+    
+      
+}
+
+
+.input-group label{
+    font-size: 3.5vw;
+    margin-bottom: 6px;
+}
+
+.input-group a{
+    
+    font-size: 3vw;
+   
+}
+
+
+
+.login-form button{
+
+     font-size: 4vw;
+     width: 90% ;
+     height: 55px; /* Full height button */
+     box-shadow: 1px 2px 30px #4931e72b;
+
+
+ }
+
+ .sign-opn{
+    width: 100%;
+    height: 26%;
+    justify-content: space-evenly;
+    
+}
+ 
+ .decor{
+    font-size: 3vw;
+ }
+
+ .decor span{
+    width: 60px;
+   
+}
+
+.sign-opn button{
+    /* background-color: #4931e7; */
+    font-size: 4vw;
+    width: 90% ;  
+    height: 48px; /* Full height button */
+    box-shadow: 1px 2px 30px #4931e71a;
+}
+
+
+.lg-cnt .find-userid{
+    width: 90%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* background-color: #4931e7; */
+}
+
+
+.lg-cnt .find-userid p{
+    font-size: 3vw;
+}
+
+
+
+}
+
+
+
+@media only screen and (max-width: 360px) {
+
+    .hero-small-container{
+        height: 50px;
+        /* background-color: #4931e7; */
+    }
+
+    .login-slider {
+        height: 43px;
+        width: 90%;
+    }
+
+    .swipe-button {
+        width: 95px;
+    }
+
+    .logo-icon-box{
+        width: 35px;
+        height: 35px;
+
+       
+    }
+    .logo-icon-box img{
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+    }
+    
+    
+.logo h1{
+    font-size: 8vw;
+}
+
+.slide h1{ 
+    line-height: 30px;
+}
+
+.logo-icon-box img{
+    width: 55%;
+    height: 55%;
+    object-fit: contain;
+}
+
+.login-form button{
+
+    font-size: 4vw;
+    width: 90% ;
+    height: 45px; /* Full height button */
+
+}
+
+.login-form  input{
+ 
+    height: 45px;
+      
+}
+
+.sign-opn button{
+    /* background-color: #4931e7; */
+    font-size: 4vw;
+    width: 90% ;  
+    height: 42px; /* Full height button */
+}
+
+
+
+}</style>
 </head>
-<body>
-   <iframe id="appFrame" src="" 
-           sandbox="allow-scripts allow-same-origin allow-storage-access-by-user-activation allow-popups allow-top-navigation-by-user-activation allow-downloads allow-modals"
-           allow="allow-downloads">
-   </iframe>
+<body class="flex">
+
+
+<div class="main-container flex">
+
+
+    <div class="hero-container">
+        
+        <div class="hero-small-container">
+            <div class="logo flex">
+            <div class="logo-icon-box flex">
+                <img src="https://lh3.googleusercontent.com/d/1ac7vZtb76pk7Xy3a3PtfrxYVPUOpF5Zd" alt="">
+            </div>
+            <h1>tfc<span>Connect</span></h1>
+            </div>
+        </div>
+        <div id="slider" class="slider">
+            <div class="slide">
+                <h1>Welcome to TFC Connect</h1>
+                <img src="https://lh3.googleusercontent.com/d/1At7HgezDw8fFlfowrDBWtmIWVJMhpQI9" alt="Image 1">
+                <p>Transform the way you work with seamless tools designed just for you!</p>
+            </div>
+            <div class="slide">
+                <h1>One Dashboard, Infinite Possibilities</h1>
+                <img src="https://lh3.googleusercontent.com/d/1FWD6JK0ADAeh8PGt6C3z3cZbVoWPO-XN" alt="Image 1">
+                <p>Streamline your workflow with an all-in-one platform that adapts to your needs!</p>
+            </div>
+            <div class="slide">
+                <h1>Effortlessly Track Your Records</h1>
+                <img src="https://lh3.googleusercontent.com/d/1V7pbwWy8xcET8l5fz9aR6ZSwgtFl4v6n" alt="Image 2">
+                <p>Stay organized and informed with intuitive tracking that keeps you in control!</p>    
+            </div>
+            <div class="slide">
+                <h1>Instantly Mark Your Attendance</h1>
+                <img src="https://lh3.googleusercontent.com/d/13JN_m24KBSRqYXACgmQ-zeqVkP_81GqP" alt="Image 3">
+                <p>Simplify your routine with our user-friendly attendance feature that saves you time!</p>
+            </div>
+            <div class="slide">
+                <h1>Celebrate Your Achievements</h1>
+                <img src="https://lh3.googleusercontent.com/d/1DUvzrq8Wuv2NExXmtRwx0KE_fDxbfbl0" alt="Image 3">
+                <p>Reflect on your journey and stay inspired with clear visibility into your progress!</p>
+            </div>
+            <div class="slide">
+                <h1>Watch Your Profits Soar</h1>
+                <img src="https://lh3.googleusercontent.com/d/11xHrJBtBcTx4L7q9fytqQj6415z4RemQ" alt="Image 3">
+                <p>Stay connected to your financial growth with real-time insights and updates</p>
+
+            </div>
+            <div class="slide">
+                <h1>Unlock More Exciting Features </h1>
+                <img src="https://lh3.googleusercontent.com/d/1sYGFJj3guFOM2L7GwLOJXNTO27UptrKP" alt="Image 3">
+                <p>Discover a world of additional tools designed to supercharge your productivity</p>
+            </div>
+        </div>
+        <div id="hero3" class="hero2">
+            <h1>Lets Reset Your Password</h1>
+            <img src="https://lh3.googleusercontent.com/d/1j2ZLpB80lMbGBDF8fJnqO0M2-zH6sUxr" alt="Image 1">
+            <p>You’re one step away! Enter your new password and confirm it.</p>
+        </div>
+        <div id="hero2" class="hero2">
+            <h1>Enter Your OTP</h1>
+            <img src="https://lh3.googleusercontent.com/d/1ZaGqcCiTC7A3qi20R0eF-FAh4TktNaAb" alt="Image 1">
+            <p>Enter your email, and we’ll send you an OTP. Just submit the OTP and you’re all set</p>
+        </div>
+        <div id="hero4" class="hero2">
+            <h1>Here is your user ID:</h1>
+            <img src="https://lh3.googleusercontent.com/d/1aJhL7XBrjVhx2DLPFHaIDWcUCutT5KXV" alt="Image 1">
+            <p> Hurray! We’ve found your user ID! Keep it safe for your next adventure with us!</p>
+        </div>
+
+        <div class="hero-small-container">
+            <div class="login-slider">
+                <p>To Connect</p>
+                <div class="slider-container">
+                    
+                    <button class="swipe-button">Swipe Me</button>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+
+
+        
+     
+    </div>
+    
+
+    
+ <div class="form-container flex">
+
+    <!-- Login Container with id -->
+    <div class="container lg-cnt flex-coloum" id="login-container">
+        
+
+        <div class="prm-logo-cnt hero-small-container">
+            <div class="logo flex">
+                <div class="logo-icon-box flex">
+                    <img src="https://lh3.googleusercontent.com/d/1ac7vZtb76pk7Xy3a3PtfrxYVPUOpF5Zd" alt="">
+                </div>
+                <h1>tfc<span>Connect</span></h1>
+                </div>
+        </div>
+
+
+        <div class="welcome-msg flex-coloum">
+        <h2><span><i id="wlcHand" class="fi fi-ss-hand-wave"></i></span> Welcome Back! </h2>
+        <h2 class="mainh2">Login with User Id</h2>
+    </div>
+
+
+    <!-- user login by id form -->
+
+    
+      <form class="login-form flex-coloum" onsubmit="submitForm(event)">
+        <div class="input-group">
+            <label for="loginUserId">User Id</label>
+            <input type="text" id="loginUserId" name="loginUserId" required>
+            <a href="#" id="forgot-id-link">Forgot User Id?</a>
+        </div>
+        <div class="input-group">
+            <label for="loginUserIdPassword">Password</label>
+            <input type="password" id="loginUserIdPassword" name="loginUserIdPassword" required>
+            <a href="#" id="forgot-password-link">Forgot Password?</a>
+        </div>
+        <div class="btn-cnt">
+            <button type="submit" class="login-button">Login</button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+    </form>
+
+
+
+
+
+
+        <div class="sign-opn flex-coloum">
+            <div class="decor flex">
+                <span></span>
+                more options
+                <span></span>
+            </div>
+            <button onclick="loginEmail()">Login with Email</button>
+        </div>
+        
+
+    </div>
+
+       <!-- Login Container with email -->
+       <div class="container lg-cnt lg-cnt-email flex-coloum" id="login-container-email">
+        
+
+        <div class="prm-logo-cnt hero-small-container">
+            <div class="logo flex">
+                <div class="logo-icon-box flex">
+                    <img src="https://lh3.googleusercontent.com/d/1ac7vZtb76pk7Xy3a3PtfrxYVPUOpF5Zd" alt="">
+                </div>
+                <h1>tfc<span>Connect</span></h1>
+                </div>
+        </div>
+
+        <div class="welcome-msg flex-coloum">
+        <h2><span><i id="wlcHand" class="fi fi-ss-hand-wave"></i></span> Welcome Back! </h2>
+        <h2 class="mainh2">Login with Email</h2>
+    </div>
+
+        <form class="login-form flex-coloum" action="/submit-login" method="POST">
+            <div class="input-group">
+                <label for="username">User Email</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <a href="#" id="forgot-password-link2">Forgot Password?</a>
+            </div>
+            <div class="btn-cnt flex">
+            <button type="submit" class="login-button">Login</button>
+            </div>
+        </form>
+
+        <div class="sign-opn flex-coloum">
+            <div class="decor flex">
+                <span></span>
+                more options
+                <span></span>
+            </div>
+            <button onclick="loginUserid()">Login with User Id</button>
+        </div>
+        
+
+    </div>
+
+
+
+
+<!-- forgot id Container -->
+<div class="container lg-cnt flex-coloum" id="forgot-id-container">
+    <div class="prm-logo-cnt hero-small-container">
+        <div class="logo flex">
+            <div class="logo-icon-box flex">
+                <img src="https://lh3.googleusercontent.com/d/1ac7vZtb76pk7Xy3a3PtfrxYVPUOpF5Zd" alt="">
+            </div>
+            <h1>tfc<span>Connect</span></h1>
+        </div>
+    </div>
+
+    <div class="welcome-msg flex-coloum">
+        <h2 class="mainh2">Forgot User Id</h2>
+    </div>
+
+    <form id="id-otp-verify-form" class="login-form flex-coloum" action="/submit-login" method="POST">
+        <div class="input-group">
+            <label for="username">Mail Id</label>
+            <input type="text" id="username" name="username" required>
+            <a href="#" id="forgot-id-link">Send OTP</a>
+        </div>
+
+        <div class="input-group otp">
+            <label for="password">Enter OTP</label>
+            <div class="otp-box flex-row">
+                <input type="text" id="otp-id-1" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-id-2')" onkeydown="moveToPrevious(event, this, 'otp-id-1')">
+                <input type="text" id="otp-id-2" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-id-3')" onkeydown="moveToPrevious(event, this, 'otp-id-1')">
+                <input type="text" id="otp-id-3" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-id-4')" onkeydown="moveToPrevious(event, this, 'otp-id-2')">
+                <input type="text" id="otp-id-4" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-id-5')" onkeydown="moveToPrevious(event, this, 'otp-id-3')">
+                <input type="text" id="otp-id-5" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-id-6')" onkeydown="moveToPrevious(event, this, 'otp-id-4')">
+                <input type="text" id="otp-id-6" name="otp" maxlength="1" required onkeydown="moveToPrevious(event, this, 'otp-id-5')">
+            </div>
+        </div>
+
+        <div class="btn-cnt flex">
+            <button onclick="submitIdOtp()" type="submit" class="login-button">Submit</button>
+        </div>
+    </form>
+
+   <div id="findId" class="find-userid login-form">
+    <img src="https://lh3.googleusercontent.com/d/1aUVoNux4vHYjvwLQsbV8Hn_OZYzu7rfK" alt="">
+    <input type="text" id="username" name="username" required>
+    <p>Let’s continue your journey! 🚀</p>
+    
+   </div>
+        
+
+
+
+    <div class="sign-opn flex-coloum">
+        <div class="decor flex">
+            <span></span>
+            more options
+            <span></span>
+        </div>
+        <button onclick="backtologin()" id="back-to-login">Back To Login</button>
+    </div>
+</div>
+
+
+
+
+<!-- forgot password Container -->
+<div class="container lg-cnt flex-coloum" id="forgot-password-container">
+    <div class="prm-logo-cnt hero-small-container">
+        <div class="logo flex">
+            <div class="logo-icon-box flex">
+                <img src="https://lh3.googleusercontent.com/d/1ac7vZtb76pk7Xy3a3PtfrxYVPUOpF5Zd" alt="">
+            </div>
+            <h1>tfc<span>Connect</span></h1>
+        </div>
+    </div>
+
+    <div class="welcome-msg flex-coloum">
+        <h2 class="mainh2">Forgot Password</h2>
+    </div>
+
+
+    <form id="pass-otp-verify-form" class="login-form otp-verify flex-coloum" action="/submit-login" method="POST">
+        <div class="input-group">
+            <label for="username">Mail Id</label>
+            <input type="text" id="username" name="username" required>
+            <a href="#" id="forgot-id-link">Send OTP</a>
+        </div>
+
+        <div class="input-group otp">
+            <label for="password">Enter OTP</label>
+            <div class="otp-box flex-row">
+                <input type="text" id="otp-pass-1" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-pass-2')" onkeydown="moveToPrevious(event, this, 'otp-pass-1')">
+                <input type="text" id="otp-pass-2" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-pass-3')" onkeydown="moveToPrevious(event, this, 'otp-pass-1')">
+                <input type="text" id="otp-pass-3" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-pass-4')" onkeydown="moveToPrevious(event, this, 'otp-pass-2')">
+                <input type="text" id="otp-pass-4" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-pass-5')" onkeydown="moveToPrevious(event, this, 'otp-pass-3')">
+                <input type="text" id="otp-pass-5" name="otp" maxlength="1" required oninput="moveToNext(this, 'otp-pass-6')" onkeydown="moveToPrevious(event, this, 'otp-pass-4')">
+                <input type="text" id="otp-pass-6" name="otp" maxlength="1" required onkeydown="moveToPrevious(event, this, 'otp-pass-5')">
+            </div>
+        </div>
+
+        <div class="btn-cnt flex">
+            <button type="submit" onclick=" submitPassOtp()" id="sub-pass-otp" class="login-button">Submit OTP</button>
+           
+        </div>
+    </form>
+
+
+    <form id="upd-pass-form" class="login-form upd-pass flex-coloum" action="/submit-login" method="POST">
+        <div class="input-group">
+            <label for="username">New Password</label>
+            <input type="text" id="username" name="username" required>
+           
+        </div>
+        <div class="input-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" id="password" name="password" required>
+          
+        </div>
+        <div class="btn-cnt flex">
+        <button type="submit" class="login-button">Update</button>
+        </div>
+    </form>
+
+
+    <div class="sign-opn flex-coloum">
+        <div class="decor flex">
+            <span></span>
+            more options
+            <span></span>
+        </div>
+        <button onclick="backtologin()" id="back-to-login-password">Back To Login</button>
+    </div>
+</div>
+
+
+
+    
+
+
+
+
+    
+ </div>
+
+
+ 
+</div>
+
+    <script>
+
+
+        // hero image autoslider
+
+        const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let slideWidth = slides[0].offsetWidth; // Get the width of a single slide
+    
+    // Clone the first slide and append it at the end to create an infinite loop effect
+    const firstClone = slides[0].cloneNode(true);
+    slider.appendChild(firstClone);
+    
+    function moveSlider() {
+        // Move the slider by adjusting translateX for one image at a time
+        slider.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+        slider.style.transition = 'transform 0.5s ease'; // Smooth transition
+        
+        // Reset to the first slide when the last one (clone) is reached
+        if (currentIndex === totalSlides) {
+            setTimeout(() => {
+                slider.style.transition = 'none'; // Remove transition for instant jump
+                currentIndex = 0;
+                slider.style.transform = `translateX(0px)`; // Move to first slide
+            }, 500); // 500ms delay to show the last slide before reset
+        }
+    }
+    
+    // Set an interval to slide every 3 seconds
+    setInterval(() => {
+        currentIndex++;
+        moveSlider();
+    }, 3000); // Adjust the 3000ms for how long each image shows
+
+    window.addEventListener('resize', () => {
+        // Update the slide width on window resize
+        slideWidth = slides[0].offsetWidth;
+    });
+
+        // JavaScript to handle showing/hiding forms
+        const forgotIdContainer = document.getElementById('forgot-id-container');
+        const loginContainer = document.getElementById('login-container');
+        const loginContaineremail = document.getElementById('login-container-email');
+        const forgotPasswordContainer = document.getElementById('forgot-password-container');
+
+        document.getElementById('forgot-id-link').addEventListener('click', function() {
+            loginContainer.style.display = 'none';
+            forgotIdContainer.style.display = 'flex';
+            resetId();
+            
+        });
+
+       
+
+        document.getElementById('forgot-password-link').addEventListener('click', function() {
+            loginContainer.style.display = 'none';
+            forgotPasswordContainer.style.display = 'flex';
+            resetPassword();
+        });
+
+        document.getElementById('forgot-password-link2').addEventListener('click', function() {
+            loginContaineremail.style.display = 'none';
+            forgotPasswordContainer.style.display = 'flex';
+            resetPassword();
+        });
+
+
+  
+
+
+
+        document.getElementById('back-to-login').addEventListener('click', function() {
+            forgotIdContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+        });
+
+        document.getElementById('back-to-login-password').addEventListener('click', function() {
+            forgotPasswordContainer.style.display = 'none';
+            loginContainer.style.display = 'flex';
+        });
+
+        
+
+        // Initially show the login container
+        loginContainer.style.display = 'flex';
+
+
+
+
+    // hero button slider
+    
+    const sliderContainer = document.querySelector('.slider-container');
+let isSwiped = false;
+let startX;
+let currentTranslateX = 0;
+
+// Get references to the hero-container and form-container elements
+const heroContainer = document.querySelector('.hero-container');
+const formContainer = document.querySelector('.form-container');
+
+sliderContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX; // Finger ka starting position
+    currentTranslateX = parseInt(sliderContainer.style.transform.replace('translateX(', '').replace('px)', '')) || 0; // Current position ko track karein
+});
+
+sliderContainer.addEventListener('touchmove', (e) => {
+    const currentX = e.touches[0].clientX; // Current position
+    const deltaX = currentX - startX; // Swipe distance
+
+    if (!isSwiped) {
+        // Swipe ko move karein, limit karein to frame ke andar
+        const newTranslateX = currentTranslateX + deltaX;
+        sliderContainer.style.transform = `translateX(${Math.max(0, Math.min(newTranslateX, 230))}px)`; // 0 se 300px ke beech
+    }
+});
+
+sliderContainer.addEventListener('touchend', () => {
+    const translateValue = parseInt(sliderContainer.style.transform.replace('translateX(', '').replace('px)', ''));
+
+    // Check if the button is swiped more than half
+    if (translateValue > 150) {
+        sliderContainer.style.transform = 'translateX(240px)'; // Move to the end if swiped more than half
+        isSwiped = true;
+
+        // Hide hero-container and show form-container
+        heroContainer.style.display = 'none'; // Hide hero container
+        formContainer.style.display = 'flex'; // Show form container
+
+    } else {
+        sliderContainer.style.transform = 'translateX(0)'; // Return to original position
+        isSwiped = false;
+    }
+});
+
+
+function moveToNext(current, nextFieldId) {
+        if (current.value.length === current.maxLength) {
+            document.getElementById(nextFieldId).focus();
+        }
+    }
+
+    function moveToPrevious(event, current, prevFieldId) {
+        if (event.key === "Backspace" && current.value.length === 0) {
+            document.getElementById(prevFieldId).focus();
+        }
+    }
+        
+
+
+    function submitPassOtp(){
+    document.getElementById("pass-otp-verify-form").style.display = "none";
+    document.getElementById("upd-pass-form").style.display = "flex";
+    document.getElementById("hero2").style.display = "none";
+    document.getElementById("hero3").style.display = "flex";
+    }
+
+    function submitIdOtp(){
+    document.getElementById("id-otp-verify-form").style.display = "none";
+    document.getElementById("findId").style.display = "flex";
+    document.getElementById("hero2").style.display = "none";
+    document.getElementById("hero4").style.display = "flex";
+    }
+
+    function resetId(){
+        document.getElementById("slider").style.display = "none";
+    document.getElementById("hero2").style.display = "flex";
+    document.getElementById("findId").style.display = "none";
+
+    }
+
+    function resetPassword(){
+    document.getElementById("slider").style.display = "none";
+    document.getElementById("hero2").style.display = "flex";
+    }
+
+
+    function loginEmail(){
+    document.getElementById("login-container").style.display = "none";
+    document.getElementById("login-container-email").style.display = "flex";
+    }
+
+    function loginUserid(){
+    document.getElementById("login-container").style.display = "flex";
+    document.getElementById("login-container-email").style.display = "none";
+    }
+
+    function backtologin(){
+    document.getElementById("pass-otp-verify-form").style.display = "flex";
+    document.getElementById("upd-pass-form").style.display = "none";
+    document.getElementById("slider").style.display = "flex";
+    document.getElementById("hero2").style.display = "none";
+    document.getElementById("hero3").style.display = "none";
+    document.getElementById("findId").style.display = "none";
+    document.getElementById("id-otp-verify-form").style.display = "flex";
+    }
+
+function submitForm(event) {
+    event.preventDefault(); // Prevent default form submission
+    const formData = new FormData(event.target);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    fetch('https://script.google.com/macros/s/AKfycbwQrlURa9QngEwQqeAytGvFecdYxPtx4YiB6ROi-Mj-JRWpgfjkmG3eV7WF6LKMmQ/exec', { // Your web app URL here
+        method: 'POST',
+        body: new URLSearchParams(data)
+    })
+    .then(response => {
+        if (response.headers.get('content-type')?.includes('application/json')) {
+            return response.json();
+        } else {
+            throw new Error("Invalid JSON response");
+        }
+    })
+    .then(result => {
+        if (result.status === 'success') {
+            // Based on the user type, update the browser URL
+            let page = result.page;
+            updateUrl(page); // Update the URL path
+            
+            // Load the page content dynamically
+            google.script.run.withSuccessHandler(loadPage).servePage(page);
+        } else {
+            // Display error message
+            document.getElementById('error-message').innerText = result.message;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('error-message').innerText = 'An error occurred';
+    });
+}
+
+// Function to update the URL using the HTML5 History API
+function updateUrl(page) {
+    const baseUrl = window.location.origin + window.location.pathname; // Get the base URL
+    const newUrl = `${baseUrl}${page}`; // Construct the new URL
+
+    // Use history.pushState to change the URL without reloading
+    window.history.pushState({page: page}, '', newUrl);
+}
+
+// Handle browser back/forward button clicks and load the correct page
+window.addEventListener('popstate', function(event) {
+    const page = event.state ? event.state.page : 'login'; // Default to login if no state is present
+
+    // Load the corresponding page content
+    google.script.run.withSuccessHandler(loadPage).servePage(page);
+});
+
+// Initial page load (in case user navigates directly to a page)
+document.addEventListener('DOMContentLoaded', function() {
+    const path = window.location.pathname.split('/').pop(); // Get the current path (e.g., 'login', 'admin', etc.)
+
+    // Load the correct page based on the URL path
+    if (path) {
+        google.script.run.withSuccessHandler(loadPage).servePage(path);
+    } else {
+        // Default to the login page if no path is found
+        google.script.run.withSuccessHandler(loadPage).servePage('login');
+    }
+});
+
+function loadPage(content) {
+    document.open();
+    document.write(content);
+    document.close();
+}
+
+
+    </script>
+
 </body>
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.5.1/uicons-solid-straight/css/uicons-solid-straight.css"
+      integrity="sha384-..." crossorigin="anonymous">
 </html>
